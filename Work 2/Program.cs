@@ -45,7 +45,7 @@ Console.WriteLine(Length(num));
 
 
 
-
+/*
 
 void CorrectDay (int day1)
 {
@@ -72,5 +72,5 @@ int day = Convert.ToInt32(Console.ReadLine());
 CorrectDay (day);
 DayOfWeek(day);
 
-
+*/
 
