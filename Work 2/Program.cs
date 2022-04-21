@@ -44,24 +44,21 @@ Console.WriteLine(Length(num));
 //Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
 
 
-/*
 
-Console.WriteLine("Input number of weekday");
-int day = Convert.ToInt32(Console.ReadLine());
 
-void CorrectDay ()
+
+void CorrectDay (int day1)
 {
-    while (day<1 || day>7)
+    while (day1<1 || day1>7)
         {
         Console.WriteLine("Input correct number of weekday");
-        int tmp = Convert.ToInt32(Console.ReadLine());
-        day=tmp;
+        day1 = Convert.ToInt32(Console.ReadLine());
         }
 }  
 
-void DayOfWeek ()
+void DayOfWeek (int day2)
 {
-        if(day>5)
+        if(day2>5)
         {
             Console.WriteLine("weekend");
         }
@@ -69,8 +66,11 @@ void DayOfWeek ()
             Console.WriteLine("weekday");
 }
 
-CorrectDay ();
-DayOfWeek();
+Console.WriteLine("Input number of weekday");
+int day = Convert.ToInt32(Console.ReadLine());
 
-*/
+CorrectDay (day);
+DayOfWeek(day);
+
+
 
