@@ -38,8 +38,11 @@ poli(num);
 //Задача 21: Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
 
 /*
+// Мог написать чуть проще, но решил поиспользовать массив.
 
-double Range(int x1,  int x2, int y1, int y2, int z1, int z2)
+
+
+double Range(int x1, int x2, int y1, int y2, int z1, int z2)
 {
     double x = Math.Pow((x2-x1), 2);
     double y = Math.Pow((y2-y1), 2);
