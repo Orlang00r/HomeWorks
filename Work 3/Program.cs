@@ -81,3 +81,22 @@ Console.WriteLine("Range is: " + result);
 */
 
 
+//Задача 23Ж: Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+
+/*
+double Cube(int N)
+{
+    double res = Math.Pow(N, 3);
+    return res;
+}
+
+Console.WriteLine("Input number");
+int num = Convert.ToInt32(Console.ReadLine());
+int n=1;
+while (n<num)
+{
+    Console.WriteLine(n + "-->" + Cube(n));
+    n++;
+}
+
+*/
