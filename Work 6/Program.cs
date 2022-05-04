@@ -48,6 +48,13 @@ Console.WriteLine("Number of  elements much 0 is: " + Count(MyArray));
 */
 
 
+
+
+
+//Задача 42: Напишите программу, которая будет преобразовывать десятичное число в двоичное.
+
+// Итерационный вариант.
+
 /*
 string Sys2Metod(int dex)
 {
@@ -70,6 +77,28 @@ int input = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Number in  binary system:  "+Sys2Metod(input));
 
 */
+
+// Рекурсивный вариант)
+
+/*
+string Sys2Metod(int dex, string binary)
+{
+    if (dex <= 1)
+    {
+        string d = Convert.ToString(dex);
+        binary = d + binary;
+        return binary;
+    }
+    return Sys2Metod(dex / 2, Convert.ToString(dex - 2 * (dex / 2)) + binary);
+}
+
+Console.WriteLine("Input DEX number: ");
+int input = Convert.ToInt32(Console.ReadLine());
+string bin = "";
+Console.WriteLine("Number in  binary system:  " + Sys2Metod(input, bin));
+
+*/
+
 
 
 //Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых,
