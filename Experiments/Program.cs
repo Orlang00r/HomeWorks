@@ -66,6 +66,8 @@ Console.WriteLine("Number of  elements much 0 is: " + Count(MyArray, 0, 0));
 
 
 // Программа проверяет, являтся ли первое число степенью второго.
+
+/*
 double Degree(int a, int b, int res)
 {
     if ((a / b) * b == a) return Degree((a / b), b, res + 1);
@@ -88,6 +90,49 @@ if (num != 1 && deg != 1) result = Degree(num, deg, res);
 if (result > 0) Console.WriteLine(num + " является " + result + " Степенью числа " + deg);
 else
     if (num != 1) Console.WriteLine(num + " не является степенью числа " + deg);
+*/
+
+// Расчет длины массива необходимого под перевод десятичного в довичное число.
+
+/*
+int Len (int number10, int length)
+{
+    number10=number10/2;
+    if (number10 > 0) return Len(number10, length+1);
+    return length;
+}
+Console.WriteLine("Input number");
+int len = Len(Convert.ToInt32(Console.ReadLine()),1);
+Console.WriteLine(len);
+*/
 
 
+
+// Программа позволяет получить код вводимого символа, если символ пустой, то выводит код пробела.
+// Метод реализован для символа, программа реализована, как защита от ввода пустого символа,что приводит к ошибкам.
+
+/*
+int Asc(string smb)
+{
+    int rez = 0;
+    if (smb.Length==1) rez = Char.ConvertToUtf32(smb, 0);
+    return rez;
+}
+
+string str = " " + Convert.ToString(Console.ReadLine());
+if (str.Length>1) str = str.Substring(1);
+    Console.WriteLine(Asc(str));
+*/
+
+
+
+// Метод для выведение символа по коду
+
+/*
+char Str(int asc)
+{
+    char str = Convert.ToChar(asc);
+    return str;
+}
+*/
 
