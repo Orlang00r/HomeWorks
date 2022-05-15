@@ -65,6 +65,7 @@ else { Console.WriteLine("index value is: " + MyArray[index1, index2]); }
 
 //Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
+/*
 double[] Array(int size1, int size2)
 {
     double[] rezult = new double[size1];
@@ -93,5 +94,6 @@ double[] arithmeticMean = Array(size1, size2);
 Console.WriteLine("arithmetic mean: ");
 for (int i = 0; i < size1; i++)
 {
-    Console.Write(Math.Round(arithmeticMean[i],2)+"\t");
+    Console.Write(Math.Round(arithmeticMean[i],1)+"\t");
 }
+*/
