@@ -228,38 +228,31 @@ Console.WriteLine(" Переведено в конечную систему: " +
 
 */
 
-void Matrix()
+void FillMatrix(int[,] a, int N)
 {
-    int N = 4;          
-    int[,] a = new int[N, N];        
     for (int ik = 0; ik < N; ik++)
-        for (int jk = 0; jk < N; jk++)
-            a[ik, jk] = 0;          
-
-    for (int ik = 0; ik < N; ik++)
-    {     
         for (int jk = 0; jk < N; jk++)
         {
-
-            int i = ik + 1;     
-            int j = jk + 1;      
-            int switcher = (j - i + N) / N;
-            int Ic = Math.Abs(i - N / 2 - 1) + (i - 1) / (N / 2) * ((N - 1) % 2);
-            int Jc = Math.Abs(j - N / 2 - 1) + (j - 1) / (N / 2) * ((N - 1) % 2);
-            int Ring = N / 2 - (Math.Abs(Ic - Jc) + Ic + Jc) / 2;
-            int Xs = i - Ring + j - Ring - 1;
-            int Coef = 4 * Ring * (N - Ring);
-            a[ik, jk] = Coef + switcher * Xs + Math.Abs(switcher - 1) * (4 * (N - 2 * Ring) - 2 - Xs);
+            int i = ik + 1; // Превод в уддобную для подсчёта форму
+            int j = jk + 1;
+            int switcher = (j - i + N) / N; // Задаём матрицу переключателя направления движения (направо => вниз / налево => вверх)
+            int iCentr = Math.Abs(i - N / 2 - 1) + (i - 1) / (N / 2) * ((N - 1) % 2);   // Определяем близость к центру по i с учетом четности стороны
+            int jCentr = Math.Abs(j - N / 2 - 1) + (j - 1) / (N / 2) * ((N - 1) % 2);   // Определяем близость к центру по j с учетом четности стороны
+            int centr = N / 2 - (Math.Abs(iCentr - jCentr) + iCentr + jCentr) / 2; // Задаём матрицу близости к центру кольца от центра.
+            int doubleLine = i - centr + j - centr - 1; // Вычисляем промежуточное значение согласно матрице
+            int ringCoef = 4 * centr * (N - centr); // Вычисляем коэффициент прироста текущего кольца
+            a[ik, jk] = ringCoef + switcher * doubleLine + Math.Abs(switcher - 1) * (4 * (N - 2 * centr) - 2 - doubleLine); // Вычисляем текущее значение
+            //  с учётом тдаленности текущего кольца и переключателя направления заполнения.
         }
-    }
-
-    for (int ik = 0; ik < N; ik++)
-    {          
-        for (int jk = 0; jk < N; jk++)
-        {
-            Console.Write(" \t " + a[ik, jk]);
-        }
-        Console.WriteLine();
-    }
 }
-Matrix();
+
+Console.WriteLine("Input count elements direction of matrix: ");
+int count = Convert.ToInt32(Console.ReadLine());
+int[,] array = new int[count, count];
+FillMatrix(array, count);
+for (int ik = 0; ik < count; ik++)
+{
+    for (int jk = 0; jk < count; jk++)
+        Console.Write(" \t " + array[ik, jk]);
+    Console.WriteLine();
+}
