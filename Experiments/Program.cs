@@ -143,6 +143,7 @@ char Str(int asc)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Конвертер значений между системами от 2х до 16х
 
+/*
 int Ord(string smb)
 {
     //Console.WriteLine(smb + "  "+smb);
@@ -225,32 +226,40 @@ Console.WriteLine(" Переведено в десятичную систему:
 Console.WriteLine();
 Console.WriteLine(" Переведено в конечную систему: " + result);
 
-
-
-
-
-
-//////
-/*
-string Str(int asc)
-{
-    string str =  Convert.ToChar(asc);
-
-    return str;
-}
-
-int Ord(string smb)
-{
-    //Console.WriteLine(smb + "  "+smb);
-    int rez = 0;
-    rez = Char.ConvertToUtf32(smb, 0);
-    return rez;
-}
-Console.WriteLine("Введите символ для преобразования: ");
-string numIn = Convert.ToString(Console.ReadLine());
-
-int a = Ord(numIn);
-string s = Str(a);
-Console.WriteLine();
-Console.WriteLine(s);
 */
+
+void Matrix()
+{
+    int N = 4;          
+    int[,] a = new int[N, N];        
+    for (int ik = 0; ik < N; ik++)
+        for (int jk = 0; jk < N; jk++)
+            a[ik, jk] = 0;          
+
+    for (int ik = 0; ik < N; ik++)
+    {     
+        for (int jk = 0; jk < N; jk++)
+        {
+
+            int i = ik + 1;     
+            int j = jk + 1;      
+            int switcher = (j - i + N) / N;
+            int Ic = Math.Abs(i - N / 2 - 1) + (i - 1) / (N / 2) * ((N - 1) % 2);
+            int Jc = Math.Abs(j - N / 2 - 1) + (j - 1) / (N / 2) * ((N - 1) % 2);
+            int Ring = N / 2 - (Math.Abs(Ic - Jc) + Ic + Jc) / 2;
+            int Xs = i - Ring + j - Ring - 1;
+            int Coef = 4 * Ring * (N - Ring);
+            a[ik, jk] = Coef + switcher * Xs + Math.Abs(switcher - 1) * (4 * (N - 2 * Ring) - 2 - Xs);
+        }
+    }
+
+    for (int ik = 0; ik < N; ik++)
+    {          
+        for (int jk = 0; jk < N; jk++)
+        {
+            Console.Write(" \t " + a[ik, jk]);
+        }
+        Console.WriteLine();
+    }
+}
+Matrix();
